@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Формирования — Sunrise of the Republic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-charter">
+
+  <a href="index.html" class="btn-back">← На главную</a>
+
+  <main class="content">
+    
+    <!-- Вкладки на странице Формирования -->
+   <div class="info-header tabs-header">
+      <div class="tabs-container">
+        
+        <!-- Ссылка "Устав" (если она нужна на этой странице) -->
+        <a href="charter.html" class="info-link">Устав</a>
+        
+        <!-- Ссылка "Должности" -->
+        <a href="dolzhnosti.html" class="info-link">Должности</a>
+        
+        <!-- Блок "Формирования" с выпадающим списком -->
+        <div class="dropdown">
+          <!-- Кнопка-ссылка. При клике ведет на страницу -->
+          <a href="formirovaniya.html" class="info-link">Формирования ▾</a>
+          
+          <!-- Сам выпадающий список (появляется при наведении) -->
+          <div class="dropdown-content">
+            <a href="formations/hc.html">Высшее Командование</a>
+            <a href="formations/fleet4.html">4-й Флот</a>
+            <a href="formations/gv17.html">17-й Гвардейский Батальон</a>
+            <a href="formations/regular.html">Регулярные Формирования</a>
+            <a href="formations/bso.html">БСО</a>
+            <a href="formations/arc.html">ARC</a>
+            <a href="formations/arf.html">ARF</a>
+          </div>
+        </div>
+        
+        <!-- Блок "Дополнительно" -->
+        <div class="dropdown">
+          <a href="dopolnitelno.html" class="info-link">Дополнительно ▾</a>
+          <div class="dropdown-content">
+            <a href="additional/tribunal.html">Трибунал</a>
+            <a href="additional/immunity.html">Список Неприкосновенности</a>
+            <a href="additional/strike.html">Ударный Батальон</a>
+            <a href="additional/specializations.html">Специализации</a>
+            <a href="additional/weapons_rep.html">Вооружение республики</a>
+            <a href="additional/weapons_kns.html">Вооружение КНС</a>
+            <a href="additional/tech_rep.html">Техника республики</a>
+            <a href="additional/tech_kns.html">Техника КНС</a>
+          </div>
+        </div>
+
+      </div> <!-- ЗАКРЫВАЕМ tabs-container -->
+    </div>   <!-- ЗАКРЫВАЕМ info-header tabs-header -->
+
+    <div class="charter-header">
+      <h1 class="charter-main-title">Формирования</h1>
+      <p class="charter-subtitle">Великой Армии Республики</p>
+    </div>
+    
+    <div class="articles-container">
+    <div class="articles-container">
+      
+      <!-- ПЕРВАЯ СЕТКА -->
+      <div class="cards-grid">
+        
+        <!-- Высшее Командование -->
+        <a href="formations/hc.html" class="card-item">
+          <img src="images/hc1.png" alt="Высшее Командование" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Высшее Командование</span>
+          </div>
+        </a>
+
+        <!-- 4-ый Секториальный Флот -->
+        <a href="formations/fleet4.html" class="card-item">
+          <img src="images/Republic_fleet_TCW.png" alt="4-ый Секториальный Флот" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">4-ый Секториальный Флот</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- ВТОРАЯ СЕТКА -->
+      <div class="cards-grid" style="margin-top: 25px;">
+        
+        <!-- Регулярные Формирования -->
+        <a href="formations/regular.html" class="card-item">
+          <img src="images/d227ef2391fbc78a982280c4398c2ef6.jpg" alt="Регулярные Формирования" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Регулярные Формирования</span>
+          </div>
+        </a>
+
+        <!-- Формирования Специального Назначения -->
+        <a href="special.html" class="card-item">
+          <img src="images/Stealth_operations_clone_trooper.png" alt="Формирования Специального назначения" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Формирования Специального назначения</span>
+          </div>
+        </a>
+
+        <!-- Правоохранительные Формирования (ведет на 17-й Гв. Батальон) -->
+        <a href="formations/gv17.html" class="card-item">
+          <img src="images/RiotCloneTrooper-TCWs2BR2.png" alt="Правоохранительные Формирования" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Правоохранительные Формирования</span>
+          </div>
+        </a>
+
+      </div>
+  </main>
+
+  <!-- ВЫДВИЖНОЕ МЕНЮ -->
+  <div class="sidebar-trigger"></div>
+  <button class="mobile-menu-btn" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  <aside class="sidebar">
+    <h3 class="sidebar__title">Навигация</h3>
+    <ul class="sidebar__list" id="auto-nav"></ul>
+  </aside>
+  <div class="overlay"></div>
+
+  <footer class="footer"><p>© 2026 Sunrise of the Republic</p></footer>
+
+  <!-- СКРИПТ МЕНЮ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navList = document.getElementById('auto-nav');
+      const articles = document.querySelectorAll('.article');
+      articles.forEach(article => {
+        const titleSpan = article.querySelector('.title-text');
+        if (!titleSpan) return;
+        let titleText = titleSpan.innerText.trim();
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + article.id;
+        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
+        a.textContent = isPlaceholder ? 'Без названия' : titleText;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
+          const yOffset = -20; 
+          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        });
+        li.appendChild(a);
+        navList.appendChild(li);
+      });
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const overlay = document.querySelector('.overlay');
+      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
+    });
+  </script>
+</body>
+</html>

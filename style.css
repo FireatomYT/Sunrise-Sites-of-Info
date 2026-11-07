@@ -1,0 +1,1372 @@
+/* --- Базовый сброс --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  background-color: #050a14; 
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --- Главный экран --- */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- Красивый фон (свечение) --- */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(0, 255, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(0, 119, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 55%),
+    linear-gradient(135deg, #050a14 0%, #0a192f 100%);
+    
+  animation: auroraMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.05) translate(-1%, 1%); }
+  100% { transform: scale(1) translate(1%, -1%); }
+}
+
+/* --- Переливающийся текст --- */
+.hero__title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
+  
+  background: linear-gradient(135deg, #00ffff, #0077ff, #00ffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* --- Кнопки (Одинаковые) --- */
+.hero__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  
+  /* Эффект стекла */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #e0f2fe;
+}
+
+/* Одинаковый эффект при наведении для обеих кнопок */
+.btn:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+}
+
+/* --- Водяной знак --- */
+.watermark {
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.9rem;
+  color: rgba(0, 255, 255, 0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.watermark__icon {
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+/* --- Подвал --- */
+.footer {
+  background-color: #030810; 
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #8fa3bf;
+  border-top: 1px solid rgba(0, 255, 255, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   Стили для страницы Устава (charter.html)
+   ========================================= */
+
+.page-content {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Заголовок страницы с таким же градиентом */
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+  
+  background: linear-gradient(135deg, #00ffff, #0077ff, #00ffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+}
+
+/* Карточка с текстом документа (Эффект матового стекла) */
+.document-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.document-card h2 {
+  color: #00ffff;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Убираем отступ у самого первого заголовка */
+.document-card h2:first-child {
+  margin-top: 0;
+}
+
+.document-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 768px) {
+  .document-card {
+    padding: 25px 20px;
+  }
+}
+
+/* =========================================
+   Кнопка возврата в углу (для внутренних страниц)
+   ========================================= */
+
+.btn-back {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 10;
+  
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  /* Эффект стекла */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #e0f2fe;
+}
+
+.btn-back:hover {
+  transform: translateX(-3px); /* Сдвиг влево при наведении */
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.25);
+}
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 768px) {
+  .btn-back {
+    top: 20px;
+    left: 20px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
+/* =========================================
+   Выдвижное меню и страница Устава
+   ========================================= */
+
+.page-charter {
+  display: flex;
+  flex-direction: column; /* Меню теперь поверх, поэтому flex в колонку */
+  overflow-x: hidden; /* Скрываем меню, когда оно за экраном */
+}
+
+/* Основной контент теперь на всю ширину */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+  z-index: 1;
+}
+
+/* --- ВЫДВИЖНОЕ МЕНЮ (Sidebar) --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0; /* Прижимаем вправо */
+  width: 250px;
+  height: 100vh;
+  
+  background: rgba(3, 8, 16, 0.85); /* Темный фон с прозрачностью */
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+  
+  padding: 40px 15px;
+  overflow-y: auto;
+  z-index: 100;
+  
+  /* Скрываем ползунок */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  /* Изначально меню спрятано за правым краем */
+  transform: translateX(105%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- ЗОНА ТРИГГЕР ДЛЯ ПК (невидимая полоска справа) --- */
+.sidebar-trigger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25px; /* Ширина зоны захвата */
+  height: 100vh;
+  z-index: 99;
+}
+
+/* На ПК: при наведении на триггер или само меню — оно выезжает */
+.sidebar-trigger:hover ~ .sidebar,
+.sidebar:hover {
+  transform: translateX(0);
+}
+
+/* --- Кнопка-гамбургер (видна только на телефонах) --- */
+.mobile-menu-btn {
+  display: none;
+}
+
+.sidebar__title {
+  color: #00ffff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.sidebar__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar__list a {
+  color: #8fa3bf;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: block;
+  transition: all 0.2s ease;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__list a:hover {
+  background: rgba(0, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+/* --- Затемнение фона (для мобильных) --- */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   Карточки статей и оформление документа
+   ========================================= */
+
+/* Контейнер для статей */
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Расстояние между карточками */
+  width: 100%;
+}
+
+/* Карточка статьи (по умолчанию) */
+.article {
+  background: rgba(15, 25, 40, 0.6); /* Темно-синий полупрозрачный фон */
+  backdrop-filter: blur(10px); /* Размытие фона (эффект стекла) */
+  border: 1px solid rgba(0, 255, 255, 0.1); /* Едва заметная бирюзовая рамка */
+  border-radius: 16px;
+  padding: 35px 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ (как на кнопках главной) */
+.article:hover {
+  transform: translateY(-5px); /* Приподнимаем карточку */
+  background: rgba(20, 35, 55, 0.8); /* Делаем фон чуть светлее */
+  border-color: rgba(0, 255, 255, 0.5); /* Зажигаем бирюзовую рамку */
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15), /* Внешнее свечение */
+              0 4px 20px rgba(0, 0, 0, 0.4); /* Тень */
+}
+
+.article h2 {
+  color: #00ffff;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+  padding-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+.article p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+/* Стили для списков (как на фото 2) */
+.styled-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.styled-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Бирюзовый треугольник вместо стандартного маркера */
+.styled-list li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #00ffff;
+  font-size: 0.8rem;
+}
+
+.styled-list strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Текст примера (серый, мелкий) */
+.example {
+  display: block;
+  color: #8fa3bf;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Блок примечания (с желтой/бирюзовой полосой слева) */
+.note {
+  background: rgba(0, 255, 255, 0.05);
+  border-left: 4px solid #00ffff;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-top: 25px;
+}
+
+.note p {
+  margin-bottom: 0;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+.note strong {
+  color: #00ffff;
+}
+
+/* Заглушки */
+.placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Дополнительные разделы */
+.article--custom h2 {
+  color: #a8b8d0;
+}
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ (обновляем отступы)
+   ========================================= */
+@media (max-width: 992px) {
+  /* ... (остальные стили мобильного меню оставляем как были) ... */
+  
+  .content {
+    padding: 20px;
+    padding-top: 80px;
+  }
+  
+  .article {
+    padding: 25px 20px; /* Уменьшаем отступы карточек на телефоне */
+  }
+}
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ (Телефоны и планшеты)
+   ========================================= */
+@media (max-width: 992px) {
+  .content {
+    padding: 20px;
+    padding-top: 80px; /* Отступ для кнопки меню */
+  }
+
+  /* Убираем ПК-триггер */
+  .sidebar-trigger {
+    display: none;
+  }
+
+  /* Показываем кнопку-гамбургер */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 101; /* Поверх меню */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 4px 6px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #00ffff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Анимация кнопки в крестик при открытом меню */
+  .menu-open .mobile-menu-btn span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-open .mobile-menu-btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-open .mobile-menu-btn span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* На мобильных меню выезжает по клику (JS добавляет класс menu-open) */
+  .sidebar {
+    width: 260px;
+    padding-top: 70px;
+    transform: translateX(105%); /* По умолчанию спрятано */
+  }
+
+  .menu-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .menu-open .overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  /* Кнопка "На главную" на мобильных */
+  .btn-back {
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+/* =========================================
+   Мини-блоки (Аккордеоны) для статей
+   ========================================= */
+
+.accordion-item {
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  background: rgba(0, 255, 255, 0.05);
+  border-color: rgba(0, 255, 255, 0.2);
+}
+
+.accordion-header {
+  padding: 15px 20px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  cursor: default;
+  position: relative;
+}
+
+.acc-num {
+  color: #00ffff;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Выпадающий контент (скрыт по умолчанию) */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 20px;
+  
+  /* Более плавная и мягкая анимация (ease-in-out) + чуть больше времени */
+  transition: max-height 0.5s ease-in-out, 
+              opacity 0.5s ease-in-out, 
+              padding 0.5s ease-in-out;
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ: Показываем контент */
+.accordion-item:hover .accordion-content {
+  max-height: 2000px; /* Достаточно места для любого текста */
+  opacity: 1;
+  padding-bottom: 15px;
+}
+
+/* Убираем внутренний скролл у списков */
+.accordion-content .styled-list {
+  margin-top: 10px; 
+  margin-bottom: 0;
+  max-height: none; /* Отключаем ограничение высоты */
+  overflow-y: visible; /* Убираем ползунок */
+  padding-right: 0;
+}
+/* =========================================
+   Иконка-подсказка для выдвижных блоков
+   ========================================= */
+
+/* Позиционируем иконку справа */
+.acc-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ffff;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* При наведении на блок иконка становится ярче и переворачивается */
+.accordion-item:hover .acc-icon {
+  opacity: 1;
+  transform: translateY(-50%) rotate(180deg);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+/* Чтобы текст не наезжал на иконку, добавляем отступ справа в заголовок */
+.accordion-header {
+  padding-right: 50px; /* Было 20px, стало 50px */
+}
+
+/* =========================================
+   Шапка страницы Устава (в общем стиле)
+   ========================================= */
+
+.charter-header {
+  text-align: center;
+  margin-bottom: 80px; /* Большой отступ до первой статьи */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Переливающийся заголовок (как на главной) */
+.charter-main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+  
+  background: linear-gradient(135deg, #00ffff, #0077ff, #00ffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  animation: shine 4s linear infinite;
+}
+
+/* Подзаголовок */
+.charter-subtitle {
+  color: #8fa3bf; /* Цвет как у серого текста на сайте */
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Плашка (Эффект стекла) */
+.charter-badge {
+  background: rgba(255, 255, 255, 0.03); /* Прозрачный фон */
+  backdrop-filter: blur(8px); /* Размытие */
+  color: #00ffff; /* Бирюзовый текст */
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 35px;
+  border-radius: 30px; /* Округлые края как у кнопок */
+  display: inline-block;
+  
+  /* Бирюзовая рамка */
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+  /* Плавная анимация */
+  transition: all 0.3s ease;
+}
+
+/* Эффект при наведении (как на кнопках главной) */
+.charter-badge:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 255, 255, 0.08);
+  border-color: #00ffff;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 768px) {
+  .charter-header {
+    margin-bottom: 50px;
+  }
+  .charter-badge {
+    font-size: 0.95rem;
+    padding: 12px 25px;
+    border-radius: 20px;
+  }
+}
+/* =========================================
+   Плашка "Правила" и контакты (info.html)
+   ========================================= */
+
+/* Контейнер для плашки */
+.info-header {
+  display: flex;
+  justify-content: flex-end; /* Прижимаем вправо */
+  padding-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Сама ссылка "Правила" */
+.info-link {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #cbd5e1; /* Серый по умолчанию */
+  text-decoration: none;
+  padding-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+/* Подчеркивание (по умолчанию скрыто) */
+.info-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #00ffff; /* Бирюзовый цвет сайта */
+  transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* Эффект при наведении (в стиле сайта) */
+.info-link:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.info-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* =========================================
+   Кнопки соцсетей
+   ========================================= */
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #e0f2fe;
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Кружочки с иконками (ВК, DC, TG) */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #00ffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Эффект при наведении на кнопку */
+.social-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 255, 255, 0.08);
+  border-color: #00ffff;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.social-btn:hover .social-icon {
+  background: #00ffff;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* =========================================
+   Блок с почтой (по центру)
+   ========================================= */
+
+.email-contact {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px dashed rgba(0, 255, 255, 0.2);
+}
+
+.email-contact p {
+  color: #8fa3bf;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.email-link {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.email-link:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+/* =========================================
+   Вкладки на странице Устава
+   ========================================= */
+
+.tabs-header {
+  justify-content: center; /* Центрируем вкладки */
+  margin-bottom: 30px;
+  padding-right: 0;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 30px; /* Расстояние между вкладками */
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+/* Делаем активную вкладку всегда бирюзовой */
+.info-link.active {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.info-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Логика скрытия/показа вкладок */
+.tab-content {
+  display: none; /* По умолчанию все скрыты */
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+  display: block; /* Показываем только активную */
+}
+
+/* Анимация появления контента */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* На мобильных телефонах уменьшаем вкладки */
+@media (max-width: 768px) {
+  .tabs-container {
+    gap: 15px;
+    padding: 10px 15px;
+    flex-wrap: wrap; /* Если не влезут в один ряд — перенесутся */
+    justify-content: center;
+  }
+  .info-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* =========================================
+   Карточки с изображениями (вкладка Должности)
+   ========================================= */
+
+.card-item {
+  background: rgba(15, 25, 40, 0.6); /* Темный фон карточки */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1); /* Едва заметная рамка */
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Расстояние между фото и кнопкой */
+  max-width: 400px; /* Ограничиваем ширину карточки */
+  margin: 0 auto; /* Центрируем, если она одна в ряду */
+}
+
+/* Эффект при наведении (в стиле сайта) */
+.card-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15), 0 4px 20px rgba(0, 0, 0, 0.4);
+  background: rgba(20, 35, 55, 0.8);
+}
+
+/* Само изображение */
+.card-image {
+  width: 100%;
+  height: 220px; /* Фиксированная высота для всех картинок */
+  object-fit: cover; /* Картинка заполняет блок, обрезая лишнее, сохраняя пропорции */
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: block; /* Убирает лишние отступы снизу */
+}
+
+/* Подвал карточки (где кнопка с названием) */
+.card-footer {
+  border: 1px solid rgba(0, 255, 255, 0.3); /* Рамка как у кнопок */
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+/* Название формирования */
+.card-title {
+  color: #00ffff; /* Бирюзовый цвет */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+}
+
+/* Эффект наведения на подвал */
+.card-item:hover .card-footer {
+  background: rgba(0, 255, 255, 0.08);
+  border-color: #00ffff;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* =========================================
+   Выпадающее меню для вкладки "Формирования"
+   ========================================= */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Само выпадающее окно */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 25, 40, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  min-width: 260px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  
+  /* ИСПРАВЛЕНИЕ ЗДЕСЬ: */
+  margin-top: 0;      /* Убираем разрыв */
+  padding-top: 15px;  /* Добавляем внутренний отступ, чтобы меню не прилипало к тексту */
+  
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+}
+
+/* Показываем меню при наведении на контейнер */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeInDropdown 0.3s ease;
+}
+
+/* Ссылки внутри меню */
+.dropdown-content a {
+  color: #cbd5e1;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Эффект при наведении на пункт меню */
+.dropdown-content a:hover {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  padding-left: 25px;
+}
+
+/* Анимация появления */
+@keyframes fadeInDropdown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 768px) {
+  .dropdown-content {
+    left: 0;
+    transform: none;
+    min-width: 100%;
+  }
+}
+
+/* =========================================
+   Блок с текстом и картинкой сбоку
+   ========================================= */
+
+.content-with-image {
+  display: flex;
+  gap: 30px; /* Расстояние между текстом и картинкой */
+  align-items: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.text-side {
+  flex: 1; /* Текст занимает всё свободное место */
+}
+
+.image-side {
+  flex-shrink: 0; /* Картинка не сжимается */
+  width: 300px; /* Ширина картинки */
+}
+
+.side-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.2); /* Бирюзовая рамка */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Эффект при наведении на картинку */
+.side-image:hover {
+  transform: scale(1.02);
+  border-color: #00ffff;
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+/* На мобильных телефонах картинка прыгает вниз под текст */
+@media (max-width: 768px) {
+  .content-with-image {
+    flex-direction: column; /* Ставим друг под другом */
+  }
+  
+  .image-side {
+    width: 100%; /* Картинка на всю ширину */
+    margin-top: 10px;
+  }
+}
+
+/* =========================================
+   Сетка ровно по 4 карточки в ряд
+   ========================================= */
+
+.grid-4-cols {
+  display: grid;
+  /* 4 колонки одинаковой ширины */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 25px;
+  width: 100%;
+}
+
+/* На планшетах делаем по 2 в ряд, чтобы карточки не были слишком узкими */
+@media (max-width: 1200px) {
+  .grid-4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* На мобильных телефонах оставляем по 1 в ряд */
+@media (max-width: 768px) {
+  .grid-4-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Фиксируем высоту карточек в сетке из 4 колонок */
+.grid-4-cols .card-item {
+  height: 320px; /* Задаем жесткую высоту для всех карточек */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Распределяем пространство: картинка сверху, текст снизу */
+}
+
+.grid-4-cols .card-image {
+  flex-grow: 1; /* Картинка занимает всё свободное пространство */
+  height: 100%; 
+  object-fit: cover; /* Картинка обрезается, сохраняя пропорции */
+}
+
+.grid-4-cols .card-footer {
+  flex-shrink: 0; /* Кнопка с текстом никогда не сжимается */
+  min-height: 70px; /* Задаем минимальную высоту подвала, чтобы текст в 2 строки влезал */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.grid-4-cols .card-title {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* =========================================
+   Стили для карточек вооружения
+   ========================================= */
+
+.weapon-card {
+  display: flex;
+  align-items: center; /* Центрируем по вертикали */
+  gap: 40px;
+  background: rgba(15, 25, 40, 0.6); /* Темный фон карточки */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1); /* Едва заметная рамка */
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 25px; /* Расстояние между карточками */
+  transition: all 0.3s ease;
+}
+
+/* Эффект при наведении на карточку */
+.weapon-card:hover {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.4);
+  background: rgba(20, 35, 55, 0.8);
+}
+
+/* Смена сторон (картинка слева, текст справа) */
+.weapon-card.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Блок с текстом */
+.weapon-content {
+  flex: 1; /* Занимает всё свободное место */
+}
+
+.weapon-content h2 {
+  color: #00ffff;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.weapon-desc {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+/* Список характеристик */
+.weapon-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weapon-stats li {
+  color: #cbd5e1;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+}
+
+/* Бирюзовые треугольные маркеры для характеристик */
+.weapon-stats li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #00ffff;
+  font-size: 0.8rem;
+}
+
+.weapon-stats li strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Блок с картинкой */
+.weapon-image-wrapper {
+  flex-shrink: 0; /* Картинка не сжимается */
+  width: 300px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.weapon-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Картинка полностью помещается в блок не обрезаясь */
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); /* Легкая тень для объема */
+}
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 900px) {
+  .weapon-card, .weapon-card.reverse {
+    flex-direction: column; /* На телефонах картинка всегда снизу */
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .weapon-image-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+  }
+}
+
+/* =========================================
+   Выпадающие списки в боковом меню навигации
+   ========================================= */
+
+/* Контейнер для пункта меню с подменю */
+.sidebar-dropdown {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+/* Кнопка категории (Наземная, Воздушная...) */
+.sidebar-dropdown-toggle {
+  display: block;
+  color: #00ffff; /* Бирюзовый цвет для категорий */
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sidebar-dropdown-toggle:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+/* Само подменю (по умолчанию скрыто) */
+.sidebar-dropdown-menu {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+/* Показываем подменю при наведении на категорию */
+.sidebar-dropdown:hover .sidebar-dropdown-menu {
+  max-height: 500px; /* Достаточно, чтобы поместился весь список */
+}
+
+/* Ссылки внутри подменю */
+.sidebar-dropdown-menu a {
+  display: block;
+  color: #8fa3bf; /* Серый цвет для обычных ссылок */
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 15px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border-left: 1px solid rgba(0, 255, 255, 0.2); /* Линия слева для структуры */
+  margin-left: 5px;
+}
+
+.sidebar-dropdown-menu a:hover {
+  color: #00ffff;
+  border-left-color: #00ffff;
+  background: rgba(0, 255, 255, 0.05);
+}

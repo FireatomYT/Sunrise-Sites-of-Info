@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Формирования Специального Назначения — Sunrise of the Republic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-charter">
+
+  <!-- Кнопка возврата -->
+  <a href="index.html" class="btn-back">← На главную</a>
+
+  <main class="content">
+    
+    <!-- Вкладки -->
+    <div class="info-header tabs-header">
+      <div class="tabs-container">
+        
+        <a href="charter.html" class="info-link">Устав</a>
+        <a href="dolzhnosti.html" class="info-link">Должности</a>
+
+        <!-- Выпадающее меню Формирований -->
+        <div class="dropdown">
+          <!-- Убран лишний class="info-link" -->
+          <a href="formirovaniya.html" class="info-link">Формирования ▾</a>
+          <div class="dropdown-content">
+            <a href="formations/hc.html">Высшее Командование</a>
+            <a href="formations/fleet4.html">4-й Флот</a>
+            <a href="formations/gv17.html">17-й Гвардейский Батальон</a>
+            <a href="formations/regular.html">Регулярные Формирования</a>
+            <a href="formations/bso.html">БСО</a>
+            <a href="formations/arc.html">ARC</a>
+            <a href="formations/arf.html">ARF</a>
+          </div>
+        </div>
+
+        <!-- Выпадающее меню Дополнительно -->
+        <div class="dropdown">
+          <!-- Убран лишний class="info-link" -->
+          <a href="dopolnitelno.html" class="info-link">Дополнительно ▾</a>
+          <div class="dropdown-content">
+            <a href="additional/tribunal.html">Трибунал</a>
+            <a href="additional/immunity.html">Список Неприкосновенности</a>
+            <a href="additional/strike.html">Ударный Батальон</a>
+            <a href="additional/specializations.html">Специализации</a>
+            <a href="additional/weapons_rep.html">Вооружение республики</a>
+            <a href="additional/weapons_kns.html">Вооружение КНС</a>
+            <a href="additional/tech_rep.html">Техника республики</a>
+            <a href="additional/tech_kns.html">Техника КНС</a>
+          </div>
+        </div>
+
+      </div> <!-- Закрывает tabs-container -->
+    </div>   <!-- Закрывает info-header tabs-header -->
+
+    <!-- Заголовок -->
+    <div class="charter-header">
+      <h1 class="charter-main-title">Специального<br>Назначения</h1>
+      <p class="charter-subtitle">Великой Армии Республики</p>
+    </div>
+    
+    <div class="articles-container">
+      
+      <!-- Сетка с тремя карточками -->
+      <div class="cards-grid">
+        
+        <!-- 1. БСО -->
+        <!-- Ведет в папку formations -->
+        <a href="formations/bso.html" class="card-item">
+          <img src="images/c14e0b6d8b824c7b4b9696e7bf4ba63f.png" alt="Бригада Специальных Операций" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Бригада Специальных Операций</span>
+          </div>
+        </a>
+
+        <!-- 2. ARC -->
+        <a href="formations/arc.html" class="card-item">
+          <img src="images/Rancor_Contingent.png" alt="Элитные Республиканские Коммандос" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Элитные Республиканские Коммандос</span>
+          </div>
+        </a>
+
+        <!-- 3. ARF -->
+        <a href="formations/arf.html" class="card-item">
+          <img src="images/3b34553634d110c6e80fe8f8aba8574d.jpg" alt="Элитные Разведывательные Силы" class="card-image">
+          <div class="card-footer">
+            <span class="card-title">Элитные Разведывательные Силы</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============================================== -->
+  <!-- ВЫДВИЖНОЕ МЕНЮ СПРАВА                          -->
+  <!-- ============================================== -->
+  <div class="sidebar-trigger"></div>
+  <button class="mobile-menu-btn" aria-label="Открыть меню">
+    <span></span><span></span><span></span>
+  </button>
+  
+  <aside class="sidebar">
+    <h3 class="sidebar__title">Навигация</h3>
+    <ul class="sidebar__list" id="auto-nav"></ul>
+  </aside>
+  
+  <div class="overlay"></div>
+
+  <footer class="footer">
+    <p>© 2026 Sunrise of the Republic</p>
+  </footer>
+
+  <!-- СКРИПТ МЕНЮ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navList = document.getElementById('auto-nav');
+      const articles = document.querySelectorAll('.article');
+      
+      articles.forEach(article => {
+        const titleSpan = article.querySelector('.title-text');
+        if (!titleSpan) return;
+
+        let titleText = titleSpan.innerText.trim();
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        
+        a.href = '#' + article.id;
+        
+        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
+        a.textContent = isPlaceholder ? 'Без названия' : titleText;
+
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          if(window.innerWidth <= 992) {
+            document.body.classList.remove('menu-open');
+          }
+          const yOffset = -20; 
+          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        });
+
+        li.appendChild(a);
+        navList.appendChild(li);
+      });
+
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const overlay = document.querySelector('.overlay');
+
+      mobileBtn.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+      });
+
+      overlay.addEventListener('click', () => {
+        document.body.classList.remove('menu-open');
+      });
+    });
+  </script>
+
+</body>
+</html>

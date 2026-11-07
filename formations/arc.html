@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARC (Элитные Республиканские Коммандос) — Sunrise of the Republic</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="page-charter">
+
+  <a href="../index.html" class="btn-back">← На главную</a>
+
+  <main class="content">
+    
+    <!-- Вкладки -->
+    <div class="info-header tabs-header">
+      <div class="tabs-container">
+        <a href="../charter.html" class="info-link">Устав</a>
+        <a href="../dolzhnosti.html" class="info-link">Должности</a>
+        
+        <div class="dropdown">
+          <a href="../formirovaniya.html" class="info-link">Формирования ▾</a>
+          <div class="dropdown-content">
+            <a href="hc.html">Высшее Командование</a>
+            <a href="fleet4.html">4-й Флот</a>
+            <a href="gv17.html">17-й Гвардейский Батальон</a>
+            <a href="regular.html">Регулярные Формирования</a>
+            <a href="bso.html">БСО</a>
+            <a href="arc.html">ARC</a>
+            <a href="arf.html">ARF</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <a href="../dopolnitelno.html" class="info-link">Дополнительно ▾</a>
+          <div class="dropdown-content">
+            <a href="../additional/tribunal.html">Трибунал</a>
+            <a href="../additional/immunity.html">Список Неприкосновенности</a>
+            <a href="../additional/strike.html">Ударный Батальон</a>
+            <a href="../additional/specializations.html">Специализации</a>
+            <a href="../additional/weapons_rep.html">Вооружение республики</a>
+            <a href="../additional/weapons_kns.html">Вооружение КНС</a>
+            <a href="../additional/tech_rep.html">Техника республики</a>
+            <a href="../additional/tech_kns.html">Техника КНС</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Заголовок -->
+    <div class="charter-header">
+      <h1 class="charter-main-title">Элитные Разведовательные Коммандос<br><span style="font-size: 0.5em; font-weight: 600; display: block; margin-top: 10px;">Элитные Республиканские Коммандос</span></h1>
+      <p class="charter-subtitle">Advanced Recon Commando — элитные разведывательные командос</p>
+    </div>
+    
+    <div class="articles-container">
+      
+      <!-- Блок 1: Общая информация -->
+      <div class="article" id="arc-info">
+        <h2>1. <span class="title-text">Общая информация</span></h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            ARC (Advanced Recon Commando) — это элитные разведывательные клоны-командос, предназначенные для выполнения особо опасных миссий, требующих сверхчеловеческой подготовки и нестандартного склада ума.
+            <span class="acc-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px; margin-bottom: 10px;">
+              На поле боя помимо выполнения разведывательно-диверсионных миссий они занимаются силовой поддержкой как регулярных, так и специальных формирований. 
+            </p>
+            <p style="color: #cbd5e1; line-height: 1.7; margin: 0;">
+              А во время дислокаций на военных объектах передают свой опыт обычным солдатам, занимаясь их обучением.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ВЫДВИЖНОЕ МЕНЮ СПРАВА -->
+  <div class="sidebar-trigger"></div>
+  <button class="mobile-menu-btn" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  
+  <aside class="sidebar">
+    <h3 class="sidebar__title">Навигация</h3>
+    <ul class="sidebar__list" id="auto-nav"></ul>
+  </aside>
+  
+  <div class="overlay"></div>
+
+  <footer class="footer">
+    <p>© 2026 Sunrise of the Republic</p>
+  </footer>
+
+  <!-- СКРИПТ МЕНЮ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navList = document.getElementById('auto-nav');
+      const articles = document.querySelectorAll('.article');
+      articles.forEach(article => {
+        const titleSpan = article.querySelector('.title-text');
+        if (!titleSpan) return;
+        let titleText = titleSpan.innerText.trim();
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + article.id;
+        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
+        a.textContent = isPlaceholder ? 'Без названия' : titleText;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
+          const yOffset = -20; 
+          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        });
+        li.appendChild(a);
+        navList.appendChild(li);
+      });
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const overlay = document.querySelector('.overlay');
+      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
+    });
+  </script>
+</body>
+</html>
