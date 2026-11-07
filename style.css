@@ -1370,3 +1370,149 @@ body {
   border-left-color: #00ffff;
   background: rgba(0, 255, 255, 0.05);
 }
+
+/* =========================================
+   Стили для схем Строевого Устава
+   ========================================= */
+
+.drill-scheme {
+  background: rgba(10, 20, 35, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем всё внутри */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.drill-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Обычный боец (голубой кружок) */
+.drill-unit {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+  margin: 0 5px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+/* Командир (желтый квадрат) */
+.drill-commander {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #fbbf24; /* Желтый цвет */
+  margin: 0 5px;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+
+/* Подпись под схемой */
+.drill-caption {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #8fa3bf;
+  text-align: center;
+}
+
+/* Адаптация для мобильных телефонов (уменьшаем кружки) */
+@media (max-width: 500px) {
+  .drill-unit, .drill-commander {
+    width: 12px;
+    height: 12px;
+    margin: 0 3px;
+  }
+}
+
+/* =========================================
+   Стили для схем Строевого Устава
+   ========================================= */
+
+.drill-scheme {
+  background: rgba(10, 20, 35, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем всю схему */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Сетка для одиночной колонны (2 колонки) */
+.drill-grid-2 {
+  display: grid;
+  grid-template-columns: 25px 25px; /* Жестко задаем ширину ячеек (кружок + отступ) */
+  gap: 10px; /* Расстояние между кружками */
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Сетка для колонны по 2 (3 колонки) */
+.drill-grid-3 {
+  display: grid;
+  grid-template-columns: 25px 25px 25px;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Общие стили для всех элементов */
+.drill-unit, .drill-commander, .drill-medic, .drill-empty {
+  width: 14px;
+  height: 14px;
+}
+
+/* Обычный боец (голубой кружок) */
+.drill-unit {
+  border-radius: 50%;
+  border: 2px solid #00aaff;
+  background: transparent;
+}
+
+/* Командир (желтый квадрат) */
+.drill-commander {
+  border-radius: 2px;
+  background: #fbbf24;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Медик (красный ромб) */
+.drill-medic {
+  background: #ff3232;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+}
+
+/* Невидимая пустая ячейка (для выравнивания) */
+.drill-empty {
+  visibility: hidden;
+}
+
+/* Подпись под схемой */
+.drill-caption {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #8fa3bf;
+  text-align: center;
+}
+
+/* Сетка для шеренги (5 колонок) */
+.drill-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 25px); /* 5 колонок по 25px */
+  gap: 10px; /* Расстояние между кружками */
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
