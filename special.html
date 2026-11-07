@@ -23,7 +23,6 @@
 
         <!-- Выпадающее меню Формирований -->
         <div class="dropdown">
-          <!-- Убран лишний class="info-link" -->
           <a href="formirovaniya.html" class="info-link">Формирования ▾</a>
           <div class="dropdown-content">
             <a href="formations/hc.html">Высшее Командование</a>
@@ -38,7 +37,6 @@
 
         <!-- Выпадающее меню Дополнительно -->
         <div class="dropdown">
-          <!-- Убран лишний class="info-link" -->
           <a href="dopolnitelno.html" class="info-link">Дополнительно ▾</a>
           <div class="dropdown-content">
             <a href="additional/tribunal.html">Трибунал</a>
@@ -49,6 +47,7 @@
             <a href="additional/weapons_kns.html">Вооружение КНС</a>
             <a href="additional/tech_rep.html">Техника республики</a>
             <a href="additional/tech_kns.html">Техника КНС</a>
+            <a href="additional/drill.html">Строевой Устав</a>
           </div>
         </div>
 
@@ -67,7 +66,6 @@
       <div class="cards-grid">
         
         <!-- 1. БСО -->
-        <!-- Ведет в папку formations -->
         <a href="formations/bso.html" class="card-item">
           <img src="images/c14e0b6d8b824c7b4b9696e7bf4ba63f.png" alt="Бригада Специальных Операций" class="card-image">
           <div class="card-footer">
@@ -96,9 +94,7 @@
     </div>
   </main>
 
-  <!-- ============================================== -->
-  <!-- ВЫДВИЖНОЕ МЕНЮ СПРАВА                          -->
-  <!-- ============================================== -->
+  <!-- ВЫДВИЖНОЕ МЕНЮ СПРАВА -->
   <div class="sidebar-trigger"></div>
   <button class="mobile-menu-btn" aria-label="Открыть меню">
     <span></span><span></span><span></span>
@@ -115,51 +111,8 @@
     <p>© 2026 Sunrise of the Republic</p>
   </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navList = document.getElementById('auto-nav');
-      const articles = document.querySelectorAll('.article');
-      
-      articles.forEach(article => {
-        const titleSpan = article.querySelector('.title-text');
-        if (!titleSpan) return;
-
-        let titleText = titleSpan.innerText.trim();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        
-        a.href = '#' + article.id;
-        
-        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
-        a.textContent = isPlaceholder ? 'Без названия' : titleText;
-
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(window.innerWidth <= 992) {
-            document.body.classList.remove('menu-open');
-          }
-          const yOffset = -20; 
-          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        });
-
-        li.appendChild(a);
-        navList.appendChild(li);
-      });
-
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-
-      mobileBtn.addEventListener('click', () => {
-        document.body.classList.toggle('menu-open');
-      });
-
-      overlay.addEventListener('click', () => {
-        document.body.classList.remove('menu-open');
-      });
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="script.js"></script>
 
 </body>
 </html>

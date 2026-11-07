@@ -665,29 +665,7 @@
     <p>© 2026 Sunrise of the Republic</p>
   </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Плавный скролл для всех ссылок в меню
-      document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
-          const targetId = this.getAttribute('href');
-          const target = document.querySelector(targetId);
-          if (target) {
-            const yOffset = -20; 
-            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({top: y, behavior: 'smooth'});
-          }
-        });
-      });
-
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="../script.js"></script>
 </body>
 </html>

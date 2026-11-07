@@ -20,7 +20,7 @@
         <a href="../dolzhnosti.html" class="info-link">Должности</a>
         
         <div class="dropdown">
-          <a href="../formirovaniya.html" class="info-link">Формирования ▾</a>
+          <a href="../formirovaniya.html" class="info-link active">Формирования ▾</a>
           <div class="dropdown-content">
             <a href="hc.html">Высшее Командование</a>
             <a href="fleet4.html">4-й Флот</a>
@@ -38,12 +38,12 @@
             <a href="../additional/tribunal.html">Трибунал</a>
             <a href="../additional/immunity.html">Список Неприкосновенности</a>
             <a href="../additional/strike.html">Ударный Батальон</a>
-            <a href="../additional/drill.html">Строевой Устав</a>
             <a href="../additional/specializations.html">Специализации</a>
             <a href="../additional/weapons_rep.html">Вооружение республики</a>
             <a href="../additional/weapons_kns.html">Вооружение КНС</a>
             <a href="../additional/tech_rep.html">Техника республики</a>
             <a href="../additional/tech_kns.html">Техника КНС</a>
+            <a href="../additional/drill.html">Строевой Устав</a>
           </div>
         </div>
       </div>
@@ -61,13 +61,12 @@
       <div class="article" id="arf-info">
         <h2>1. <span class="title-text">Общая информация</span></h2>
         
-        <div class="accordion-item">
-          <div class="accordion-header">
-            ARF (Advanced Recon Force) — это элитные клоны-разведчики, не оставляющие противнику шанса скрыться и готовые найти что угодно на любой местности.
-            <span class="acc-icon">▼</span>
-          </div>
-          <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px; margin-bottom: 10px;">
+        <div class="accordion-item" style="margin-top: 20px;">
+          <div style="padding: 20px;">
+            <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 15px;">
+              ARF (Advanced Recon Force) — это элитные клоны-разведчики, не оставляющие противнику шанса скрыться и готовые найти что угодно на любой местности.
+            </p>
+            <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 15px;">
               ARF занимаются разведкой местности, поиском противника и пропавших союзников, диверсионными и скрытыми операциями.
             </p>
             <p style="color: #cbd5e1; line-height: 1.7; margin: 0;">
@@ -75,7 +74,6 @@
             </p>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -96,35 +94,7 @@
     <p>© 2026 Sunrise of the Republic</p>
   </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navList = document.getElementById('auto-nav');
-      const articles = document.querySelectorAll('.article');
-      articles.forEach(article => {
-        const titleSpan = article.querySelector('.title-text');
-        if (!titleSpan) return;
-        let titleText = titleSpan.innerText.trim();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + article.id;
-        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
-        a.textContent = isPlaceholder ? 'Без названия' : titleText;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
-          const yOffset = -20; 
-          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        });
-        li.appendChild(a);
-        navList.appendChild(li);
-      });
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="../script.js"></script>
 </body>
 </html>

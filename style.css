@@ -585,64 +585,40 @@ body {
   }
 }
 /* =========================================
-   Мини-блоки (Аккордеоны) для статей
+   ПЛАВНЫЕ АККОРДЕОНЫ (Управляются JS)
    ========================================= */
 
-.accordion-item {
-  margin-bottom: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Контейнер выпадающего блока */
+.accordion-content {
+  height: 0; /* JS будет управлять этой высотой */
+  overflow: hidden;
+  opacity: 0;
+  /* Плавная анимация */
+  transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* Внутренняя обертка (для отступов) */
+.accordion-inner {
+  padding: 10px 20px 15px 20px;
+}
+
+/* Иконка (стрелочка) */
+.acc-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ffff;
+  font-size: 0.8rem;
+  opacity: 0.6;
   transition: all 0.3s ease;
 }
 
-.accordion-item:hover {
-  background: rgba(0, 255, 255, 0.05);
-  border-color: rgba(0, 255, 255, 0.2);
-}
-
-.accordion-header {
-  padding: 15px 20px;
-  color: #cbd5e1;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  cursor: default;
-  position: relative;
-}
-
-.acc-num {
-  color: #00ffff;
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-/* Выпадающий контент (скрыт по умолчанию) */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding: 0 20px;
-  
-  /* Более плавная и мягкая анимация (ease-in-out) + чуть больше времени */
-  transition: max-height 0.5s ease-in-out, 
-              opacity 0.5s ease-in-out, 
-              padding 0.5s ease-in-out;
-}
-
-/* ЭФФЕКТ ПРИ НАВЕДЕНИИ: Показываем контент */
-.accordion-item:hover .accordion-content {
-  max-height: 2000px; /* Достаточно места для любого текста */
+/* Переворот стрелочки при наведении */
+.accordion-item:hover .acc-icon {
   opacity: 1;
-  padding-bottom: 15px;
-}
-
-/* Убираем внутренний скролл у списков */
-.accordion-content .styled-list {
-  margin-top: 10px; 
-  margin-bottom: 0;
-  max-height: none; /* Отключаем ограничение высоты */
-  overflow-y: visible; /* Убираем ползунок */
-  padding-right: 0;
+  transform: translateY(-50%) rotate(180deg);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
 }
 /* =========================================
    Иконка-подсказка для выдвижных блоков
@@ -1515,4 +1491,77 @@ body {
   justify-items: center;
   align-items: center;
   margin-bottom: 15px;
+}
+/* =========================================
+   ВОЗВРАЩАЕМ КРАСИВЫЕ БЛОКИ ДЛЯ АККОРДЕОНОВ
+   ========================================= */
+
+.accordion-item {
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.accordion-item:hover {
+  background: rgba(0, 255, 255, 0.08);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+}
+
+.accordion-header {
+  padding: 15px 50px 15px 20px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  cursor: default;
+  position: relative;
+}
+
+.acc-num {
+  color: #00ffff;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.accordion-inner {
+  padding: 0 20px 20px 20px;
+}
+
+.acc-icon {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  color: #00ffff;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover .acc-icon {
+  opacity: 1;
+  transform: rotate(180deg);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+/* Контейнер для центральной карточки */
+.center-card-container {
+  display: flex;
+  justify-content: center; /* Центрируем по горизонтали */
+  width: 100%;
+}
+
+/* Задаем центральной карточке такую же ширину, как у карточек в сетке из 4 колонок */
+.center-card-container .card-item {
+  width: calc(25% - 19px); /* 25% ширины минус отступы (gap) */
+  min-width: 250px; /* Чтобы на телефонах не была слишком узкой */
+}
+
+/* На мобильных устройствах карточка занимает всю ширину */
+@media (max-width: 768px) {
+  .center-card-container .card-item {
+    width: 100%;
+  }
 }

@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Высшее Командование — Sunrise of the Republic</title>
-  <!-- Путь к стилям на уровень выше -->
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
 </head>
@@ -21,7 +20,7 @@
         <a href="../dolzhnosti.html" class="info-link">Должности</a>
         
         <div class="dropdown">
-          <a href="../formirovaniya.html" class="info-link">Формирования ▾</a>
+          <a href="../formirovaniya.html" class="info-link active">Формирования ▾</a>
           <div class="dropdown-content">
             <a href="hc.html">Высшее Командование</a>
             <a href="fleet4.html">4-й Флот</a>
@@ -39,17 +38,23 @@
             <a href="../additional/tribunal.html">Трибунал</a>
             <a href="../additional/immunity.html">Список Неприкосновенности</a>
             <a href="../additional/strike.html">Ударный Батальон</a>
-            <a href="../additional/drill.html">Строевой Устав</a>
             <a href="../additional/specializations.html">Специализации</a>
             <a href="../additional/weapons_rep.html">Вооружение республики</a>
             <a href="../additional/weapons_kns.html">Вооружение КНС</a>
             <a href="../additional/tech_rep.html">Техника республики</a>
             <a href="../additional/tech_kns.html">Техника КНС</a>
+            <a href="../additional/drill.html">Строевой Устав</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Заголовок -->
+    <div class="charter-header">
+      <h1 class="charter-main-title">Высшее<br>Командование</h1>
+      <p class="charter-subtitle">Великой Армии Республики</p>
+    </div>
+    
     <div class="articles-container">
       
       <!-- Блок 1: Общая информация -->
@@ -62,7 +67,7 @@
         </div>
       </div>
 
-      <!-- Блок 2: Виды высшего командования (Все пункты выдвижные) -->
+      <!-- Блок 2: Виды высшего командования -->
       <div class="article" id="hq-types">
         <h2><span class="title-text">Виды высшего командования</span></h2>
         
@@ -74,9 +79,11 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Члены ВКСР входят в Офис Верховного Канцлера и являются верховным командованием ВАР, занимаются написанием основного устава а так-же его доп. документов. Имеют неприкосновенность, а так-же имеют право вынести исключение в любой пункт устава.
-            </p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Члены ВКСР входят в Офис Верховного Канцлера и являются верховным командованием ВАР, занимаются написанием основного устава а так-же его доп. документов. Имеют неприкосновенность, а так-же имеют право вынести исключение в любой пункт устава.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -88,9 +95,11 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Представитель от той или иной Планеты входящий в Сенатский парламент. Имеет право командовать подконтрольными единицами на его планете, в Армии имеет права и полномочия присваемые званию BG. В одной Секториальной армии может иметься Несколько Сенаторов (Зависит от количества планет входящих в ту или иную Секториальную Армию).
-            </p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Представитель от той или иной Планеты входящий в Сенатский парламент. Имеет право командовать подконтрольными единицами на его планете, в Армии имеет права и полномочия присваемые званию BG. В одной Секториальной армии может иметься Несколько Сенаторов (Зависит от количества планет входящих в ту или иную Секториальную Армию).
+              </p>
+            </div>
           </div>
         </div>
 
@@ -98,13 +107,15 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <strong>3. Военный Сенатор</strong><br>
-            <span style="color: #8fa3bf; font-size: 0.95rem;">[Имеет звания: GA; FM]</span>
+            <span style="color: #8fa3bf; font-size: 0.95rem;">[Имеет звания: FM; MR]</span>
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Всё тот же Сенатор только приписанный к одной из секториальных армий и имеющий право идти на поле боя вместе с солдатами. Имеет право командовать всей армией исходя из присвоенного ему звания внутри этой армии, Назначается исключительно Главнокомандующим и лично Канцлером Шиф Палпатином. К одной Секториальной Армии может быть приписано 2 Военных Сенатора.
-            </p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Всё тот же Сенатор только приписанный к одной из секториальных армий и имеющий право идти на поле боя вместе с солдатами. Имеет право командовать всей армией исходя из присвоенного ему звания внутри этой армии, Назначается исключительно Главнокомандующим и лично Канцлером Шиф Палпатином. К одной Секториальной Армии может быть приписано 2 Военных Сенатора.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -112,13 +123,14 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <strong>4. Секториальный Командующий</strong><br>
-            <span style="color: #8fa3bf; font-size: 0.95rem;">[]</span>
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Имеет право на управление всеми составами которые расположены на территории его секториальной армии, при необходимости занимается полным контролем инфраструктуры на территории закреплённой за ним секториальной армии.
-            </p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Имеет право на управление всеми составами которые расположены на территории его секториальной армии, при необходимости занимается полным контролем инфраструктуры на территории закреплённой за ним секториальной армии.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -126,13 +138,14 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <strong>5. Представитель Армии</strong><br>
-            <span style="color: #8fa3bf; font-size: 0.95rem;">[]</span>
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Единицы высшего командования имеющие полный спектр прав на командование любыми структурами и формированиями.
-            </p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Единицы высшего командования имеющие полный спектр прав на командование любыми структурами и формированиями.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -141,7 +154,6 @@
       <!-- Блок 3: РСБ (Отдельный блок) -->
       <div class="article" id="rss">
         
-        <!-- Большой заголовок по центру -->
         <h2 style="text-align: center; color: #00ffff; border-bottom: none; font-size: 2rem; font-weight: 800; text-shadow: none; margin-top: 10px; margin-bottom: 30px;">
           Республиканская Служба Безопасности
         </h2>
@@ -153,38 +165,42 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Республиканская служба безопасности (РСБ) — это исполнительная часть структуры высшего командования, являющаяся отдельным формированием, регулирующим работу регулярных сил армии и являющаяся исполнительным органом структуры высшего командования.
-            </p>
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Предназначена для защиты прав военнослужащих, лиц гражданского населения, обеспечения законности, правопорядка и воинской дисциплины в ВАР, а также в пределах своих полномочий для противодействия противоправных действий.
-            </p>
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Поступление на службу в РСБ возможно по решению Директора РСБ со звания ADT.
-            </p>
-            
-            <div class="note" style="margin-top: 15px;">
-              <p><strong>Примечание:</strong> Членами РСБ не могут стать джедаи, наёмные единицы ВАР, ранее осуждённые лица гражданского персонала.</p>
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Республиканская служба безопасности (РСБ) — это исполнительная часть структуры высшего командования, являющаяся отдельным формированием, регулирующим работу регулярных сил армии и являющаяся исполнительным органом структуры высшего командования.
+              </p>
+              <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
+                Предназначена для защиты прав военнослужащих, лиц гражданского населения, обеспечения законности, правопорядка и воинской дисциплины в ВАР, а также в пределах своих полномочий для противодействия противоправных действий.
+              </p>
+              <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
+                Поступление на службу в РСБ возможно по решению Директора РСБ со звания HWO.
+              </p>
+              
+              <div class="note" style="margin-top: 15px;">
+                <p><strong>Примечание:</strong> Членами РСБ не могут стать джедаи, наёмные единицы ВАР, ранее осуждённые лица гражданского персонала.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 2. Система Иерархии (ТЕПЕРЬ ВНУТРИ КАРТОЧКИ) -->
+        <!-- 2. Система Иерархии -->
         <div class="accordion-item">
           <div class="accordion-header">
             <strong>Система Иерархии</strong>
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <ul class="styled-list" style="margin-top: 15px;">
-              <li><strong>Директор РСБ</strong> <span style="color: #8fa3bf;">[DIR]</span></li>
-              <li><strong>Заместитель Директора РСБ</strong> <span style="color: #8fa3bf;">[DEP]</span></li>
-              <li><strong>Шеф Отдела</strong> <span style="color: #8fa3bf;">[Chief-отдел]</span></li>
-              <li><strong>Заместитель Шефа отдела</strong> <span style="color: #8fa3bf;">[DEP Chief-отдел]</span></li>
-              <li><strong>Старший Агент</strong> <span style="color: #8fa3bf;">[SA]</span></li>
-              <li><strong>Агент</strong> <span style="color: #8fa3bf;">[Agent]</span></li>
-              <li><strong>Младший Агент</strong> <span style="color: #8fa3bf;">[JA]</span></li>
-            </ul>
+            <div class="accordion-inner">
+              <ul class="styled-list">
+                <li><strong>Директор РСБ</strong> <span style="color: #8fa3bf;">[DIR]</span></li>
+                <li><strong>Заместитель Директора РСБ</strong> <span style="color: #8fa3bf;">[DEP]</span></li>
+                <li><strong>Шеф Отдела</strong> <span style="color: #8fa3bf;">[Chief-отдел]</span></li>
+                <li><strong>Заместитель Шефа отдела</strong> <span style="color: #8fa3bf;">[DEP Chief-отдел]</span></li>
+                <li><strong>Старший Агент</strong> <span style="color: #8fa3bf;">[SA]</span></li>
+                <li><strong>Агент</strong> <span style="color: #8fa3bf;">[Agent]</span></li>
+                <li><strong>Младший Агент</strong> <span style="color: #8fa3bf;">[JA]</span></li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -195,40 +211,37 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            
-            <!-- Мини-блок 1 -->
-            <div class="accordion-item" style="margin-top: 15px;">
-              <div class="accordion-header">
-                <strong>1. Инспекционный Отдел Высшего Командования</strong><br>
-                <span style="color: #8fa3bf; font-size: 0.9rem;">(Inspection Department of the High Command) [IDHC]</span>
+            <div class="accordion-inner">
+              <div class="accordion-item" style="margin-top: 10px;">
+                <div class="accordion-header">
+                  <strong>1. Инспекционный Отдел Высшего Командования</strong><br>
+                  <span style="color: #8fa3bf; font-size: 0.9rem;">(Inspection Department of the High Command) [IDHC]</span>
+                </div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Отдел Военных Инспекторов занимается Поддержанием знаний всей Документации и Устава у бойцов Регулярных Формирований, а так же проведением Регулярных Проверок на знание Устава и прилегающий к нему Документации.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Отдел Военных Инспекторов занимается Поддержанием знаний всей Документации и Устава у бойцов Регулярных Формирований, а так же проведением Регулярных Проверок на знание Устава и прилегающий к нему Документации.
-              </p>
-            </div>
 
-            <!-- Мини-блок 2 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <strong>2. Комендантский Отдел Высшего Командования</strong><br>
-                <span style="color: #8fa3bf; font-size: 0.9rem;">(Commandant Department of the High Command) [CDHC]</span>
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <strong>2. Комендантский Отдел Высшего Командования</strong><br>
+                  <span style="color: #8fa3bf; font-size: 0.9rem;">(Commandant Department of the High Command) [CDHC]</span>
+                </div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Отдел Военных Комендантов занимается поддержанием активности внутри Регулярных Формирований, Проведением учений и различной помощью Регулярным Формированиям.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Отдел Военных Комендантов занимается поддержанием активности внутри Регулярных Формирований, Проведением учений и различной помощью Регулярным Формированиям.
-              </p>
-            </div>
 
-            <!-- Мини-блок 3 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <strong>3. Надзорный Отдел Высшего Командования</strong><br>
-                <span style="color: #8fa3bf; font-size: 0.9rem;">(Warden Department of the High Command) [WDHC]</span>
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <strong>3. Надзорный Отдел Высшего Командования</strong><br>
+                  <span style="color: #8fa3bf; font-size: 0.9rem;">(Warden Department of the High Command) [WDHC]</span>
+                </div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Отдел Военных Надзирателей занимается надзорной деятельностью над Правоохранительными Структурами Регулярных Формирований и Гвардейского Батальона, поддержанием стабильной связи между ними, а так же составлением трибунальных дел и организацией трибуналов.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Отдел Военных Надзирателей занимается надзорной деятельностью над Правоохранительными Структурами Регулярных Формирований и Гвардейского Батальона, поддержанием стабильной связи между ними, а так же составлением трибунальных дел и организацией трибуналов.
-              </p>
             </div>
-
           </div>
         </div>
 
@@ -239,47 +252,35 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            
-            <!-- Мини-блок 1 -->
-            <div class="accordion-item" style="margin-top: 15px;">
-              <div class="accordion-header">
-                <strong>1. Director RSS [DIR]</strong>
+            <div class="accordion-inner">
+              <div class="accordion-item" style="margin-top: 10px;">
+                <div class="accordion-header"><strong>1. Director RSS [DIR]</strong></div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Наивысшее должностное лицо в РСБ. Руководит всеми единицами ВАР, вербует и обучает новых членов РСБ. Ответственнен за безопасность всей секторальной армии, защиту от внутренних угроз и информационную безопасность. На должность главы управления безопасности может встать член РСБ, званием COL.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Наивысшее должностное лицо в РСБ. Руководит всеми единицами ВАР, вербует и обучает новых членов РСБ. Ответственнен за безопасность всей секторальной армии, защиту от внутренних угроз и информационную безопасность. На должность главы управления безопасности может встать член РСБ, званием COL.
-              </p>
-            </div>
 
-            <!-- Мини-блок 2 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <strong>2. Commander Of A Military Facility [CMF]</strong>
+              <div class="accordion-item">
+                <div class="accordion-header"><strong>2. Commander Of A Military Facility [CMF]</strong></div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  (Командир Военного Объекта) Должностное лицо которое полностью регулирует работу Военного Объекта и отвечает за его содержание.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                (Командир Военного Объекта) Должностное лицо которое полностью регулирует работу Военного Объекта и отвечает за его содержание.
-              </p>
-            </div>
 
-            <!-- Мини-блок 3 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <strong>3. Судья [Judge]</strong>
+              <div class="accordion-item">
+                <div class="accordion-header"><strong>3. Судья [Judge]</strong></div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Должностное лицо в РСБ. Принимает окончательное решение по судебному делу. Имеет право на контроль единицами Великой Армии Республики, если на то есть необходимость. В процессе судебных разбирательств имеет наивысший приоритет, пока приговор не будет вынесен. На должность судьи может встать сотрудник РСБ, со звания CPT+.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Должностное лицо в РСБ. Принимает окончательное решение по судебному делу. Имеет право на контроль единицами Великой Армии Республики, если на то есть необходимость. В процессе судебных разбирательств имеет наивысший приоритет, пока приговор не будет вынесен. На должность судьи может встать сотрудник РСБ, со звания CPT+.
-              </p>
-            </div>
 
-            <!-- Мини-блок 4 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <strong>4. Шеф отдела [Chief-отдел]</strong>
+              <div class="accordion-item">
+                <div class="accordion-header"><strong>4. Шеф отдела [Chief-отдел]</strong></div>
+                <div style="padding: 0 15px 15px 15px; color: #cbd5e1; line-height: 1.7;">
+                  Высшее должностное лицо в том или ином отделе РСБ.
+                </div>
               </div>
-              <p style="color: #cbd5e1; line-height: 1.7; padding: 0 20px 15px 20px; margin: 0;">
-                Высшее должностное лицо в том или ином отделе РСБ.
-              </p>
             </div>
-
           </div>
         </div>
 
@@ -290,16 +291,18 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <ol class="styled-list" style="margin-top: 15px; list-style-type: decimal; padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Брать командование воинскими формированиями при острой необходимости.</li>
-              <li style="margin-bottom: 8px;">Проводить военный трибунал, допросы и иные следственные мероприятия (соответствуя своей должности и званию).</li>
-              <li style="margin-bottom: 8px;">Беспрепятственный проход на любую территорию военных объектов.</li>
-              <li style="margin-bottom: 8px;">Проводить обыски в казармах и др. расположениях всех единиц ВАР.</li>
-              <li style="margin-bottom: 8px;">Выносить вердикт по трибуналу и следствию (соответствуя своей должности и званию).</li>
-              <li style="margin-bottom: 8px;">Самолично производить арест в виду нарушений устава ВАР либо по иной объективной причине.</li>
-              <li style="margin-bottom: 8px;">Запрашивать и проводить проверку любых личных дел граждан и солдат Республики.</li>
-              <li style="margin-bottom: 8px;">Отменять любое решение Дисциплинарных Структур если посчитают его не справедливым.</li>
-            </ol>
+            <div class="accordion-inner">
+              <ol class="styled-list" style="margin-top: 10px; padding-left: 20px; list-style-type: decimal;">
+                <li style="margin-bottom: 8px;">Брать командование воинскими формированиями при острой необходимости.</li>
+                <li style="margin-bottom: 8px;">Проводить военный трибунал, допросы и иные следственные мероприятия (соответствуя своей должности и званию).</li>
+                <li style="margin-bottom: 8px;">Беспрепятственный проход на любую территорию военных объектов.</li>
+                <li style="margin-bottom: 8px;">Проводить обыски в казармах и др. расположениях всех единиц ВАР.</li>
+                <li style="margin-bottom: 8px;">Выносить вердикт по трибуналу и следствию (соответствуя своей должности и званию).</li>
+                <li style="margin-bottom: 8px;">Самолично производить арест в виду нарушений устава ВАР либо по иной объективной причине.</li>
+                <li style="margin-bottom: 8px;">Запрашивать и проводить проверку любых личных дел граждан и солдат Республики.</li>
+                <li style="margin-bottom: 8px;">Отменять любое решение Дисциплинарных Структур если посчитают его не справедливым.</li>
+              </ol>
+            </div>
           </div>
         </div>
 
@@ -310,22 +313,22 @@
             <span class="acc-icon">▼</span>
           </div>
           <div class="accordion-content">
-            <p style="color: #cbd5e1; line-height: 1.7; margin-top: 10px;">
-              Каждый член РСБ являеться еденицей Высшего Командования, в связи с чем не обязан предъявлять никаких документов удостоверяющих его личность всем единицам входящим в состав ВАР кроме ВКСР. Но для предоставления информации Гражданским Лицам все члены РСБ обязаны иметь при себе особое удостоверение (оно же IDN-Карта).
-            </p>
-            <p style="color: #00ffff; margin-top: 15px; margin-bottom: 5px;"><strong>Форма IDN-Карты:</strong></p>
-            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace; color: #a8b8d0; border-left: 4px solid #00ffff; margin-bottom: 15px;">
-              [Спец. номер карты][Принадлежность к структуре][Звание][Должность][Кодовое имя/Позывной][Дата зачисления]
+            <div class="accordion-inner">
+              <p style="color: #cbd5e1; line-height: 1.7;">
+                Каждый член РСБ являеться еденицей Высшего Командования, в связи с чем не обязан предъявлять никаких документов удостоверяющих его личность всем единицам входящим в состав ВАР кроме ВКСР. Но для предоставления информации Гражданским Лицам все члены РСБ обязаны иметь при себе особое удостоверение (оно же IDN-Карта).
+              </p>
+              <p style="color: #00ffff; margin-top: 15px; margin-bottom: 5px;"><strong>Форма IDN-Карты:</strong></p>
+              <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace; color: #a8b8d0; border-left: 4px solid #00ffff; margin-bottom: 15px;">
+                [Спец. номер карты][Принадлежность к структуре][Звание][Должность][Кодовое имя/Позывной][Дата зачисления]
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.9rem;">
+                <strong>Пример:</strong> [2584][Inspection HC][COL][Agent][Pin][02.05.26]
+              </p>
             </div>
-            <p style="color: #cbd5e1; font-size: 0.9rem;">
-              <strong>Пример:</strong> [2584][Inspection HC][COL][Agent][Pin][02.05.26]
-            </p>
           </div>
         </div>
 
-
       </div>
-      
 
     </div>
   </main>
@@ -345,35 +348,7 @@
     <p>© 2026 Sunrise of the Republic</p>
   </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navList = document.getElementById('auto-nav');
-      const articles = document.querySelectorAll('.article');
-      articles.forEach(article => {
-        const titleSpan = article.querySelector('.title-text');
-        if (!titleSpan) return;
-        let titleText = titleSpan.innerText.trim();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + article.id;
-        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
-        a.textContent = isPlaceholder ? 'Без названия' : titleText;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
-          const yOffset = -20; 
-          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        });
-        li.appendChild(a);
-        navList.appendChild(li);
-      });
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="../script.js"></script>
 </body>
 </html>

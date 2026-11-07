@@ -38,12 +38,12 @@
             <a href="tribunal.html">Трибунал</a>
             <a href="immunity.html">Список Неприкосновенности</a>
             <a href="strike.html">Ударный Батальон</a>
-            <a href="drill.html">Строевой Устав</a>
             <a href="specializations.html">Специализации</a>
             <a href="weapons_rep.html">Вооружение республики</a>
             <a href="weapons_kns.html">Вооружение КНС</a>
             <a href="tech_rep.html">Техника республики</a>
             <a href="tech_kns.html">Техника КНС</a>
+            <a href="drill.html">Строевой Устав</a>
           </div>
         </div>
       </div>
@@ -71,7 +71,6 @@
           </ul>
         </div>
         <div class="weapon-image-wrapper">
-          <!-- Вставьте свое название файла, если оно отличается (например, .jpg) -->
           <img src="../images/weapon/5ed7671fdfda47379f9affe0405ae0ea.jpeg" alt="DC-15A" class="weapon-img">
         </div>
       </div>
@@ -262,35 +261,7 @@
     <p>© 2026 Sunrise of the Republic</p>
   </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navList = document.getElementById('auto-nav');
-      const articles = document.querySelectorAll('.article');
-      articles.forEach(article => {
-        const titleSpan = article.querySelector('.title-text');
-        if (!titleSpan) return;
-        let titleText = titleSpan.innerText.trim();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + article.id;
-        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
-        a.textContent = isPlaceholder ? 'Без названия' : titleText;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
-          const yOffset = -20; 
-          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        });
-        li.appendChild(a);
-        navList.appendChild(li);
-      });
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="../script.js"></script>
 </body>
 </html>

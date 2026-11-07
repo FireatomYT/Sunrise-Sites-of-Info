@@ -13,22 +13,14 @@
 
   <main class="content">
     
-    <!-- Вкладки на странице Формирования -->
-   <div class="info-header tabs-header">
+    <!-- Вкладки -->
+    <div class="info-header tabs-header">
       <div class="tabs-container">
-        
-        <!-- Ссылка "Устав" (если она нужна на этой странице) -->
         <a href="charter.html" class="info-link">Устав</a>
-        
-        <!-- Ссылка "Должности" -->
         <a href="dolzhnosti.html" class="info-link">Должности</a>
         
-        <!-- Блок "Формирования" с выпадающим списком -->
         <div class="dropdown">
-          <!-- Кнопка-ссылка. При клике ведет на страницу -->
-          <a href="formirovaniya.html" class="info-link">Формирования ▾</a>
-          
-          <!-- Сам выпадающий список (появляется при наведении) -->
+          <a href="formirovaniya.html" class="info-link active">Формирования ▾</a>
           <div class="dropdown-content">
             <a href="formations/hc.html">Высшее Командование</a>
             <a href="formations/fleet4.html">4-й Флот</a>
@@ -40,7 +32,6 @@
           </div>
         </div>
         
-        <!-- Блок "Дополнительно" -->
         <div class="dropdown">
           <a href="dopolnitelno.html" class="info-link">Дополнительно ▾</a>
           <div class="dropdown-content">
@@ -52,18 +43,18 @@
             <a href="additional/weapons_kns.html">Вооружение КНС</a>
             <a href="additional/tech_rep.html">Техника республики</a>
             <a href="additional/tech_kns.html">Техника КНС</a>
+            <a href="additional/drill.html">Строевой Устав</a>
           </div>
         </div>
+      </div>
+    </div>
 
-      </div> <!-- ЗАКРЫВАЕМ tabs-container -->
-    </div>   <!-- ЗАКРЫВАЕМ info-header tabs-header -->
-
+    <!-- Заголовок -->
     <div class="charter-header">
       <h1 class="charter-main-title">Формирования</h1>
       <p class="charter-subtitle">Великой Армии Республики</p>
     </div>
     
-    <div class="articles-container">
     <div class="articles-container">
       
       <!-- ПЕРВАЯ СЕТКА -->
@@ -115,48 +106,26 @@
         </a>
 
       </div>
+
+    </div>
   </main>
 
-  <!-- ВЫДВИЖНОЕ МЕНЮ -->
+  <!-- ВЫДВИЖНОЕ МЕНЮ СПРАВА -->
   <div class="sidebar-trigger"></div>
   <button class="mobile-menu-btn" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  
   <aside class="sidebar">
     <h3 class="sidebar__title">Навигация</h3>
     <ul class="sidebar__list" id="auto-nav"></ul>
   </aside>
+  
   <div class="overlay"></div>
 
-  <footer class="footer"><p>© 2026 Sunrise of the Republic</p></footer>
+  <footer class="footer">
+    <p>© 2026 Sunrise of the Republic</p>
+  </footer>
 
-  <!-- СКРИПТ МЕНЮ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navList = document.getElementById('auto-nav');
-      const articles = document.querySelectorAll('.article');
-      articles.forEach(article => {
-        const titleSpan = article.querySelector('.title-text');
-        if (!titleSpan) return;
-        let titleText = titleSpan.innerText.trim();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + article.id;
-        const isPlaceholder = titleText.includes('[Введите') || titleText.includes('[Название');
-        a.textContent = isPlaceholder ? 'Без названия' : titleText;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          if(window.innerWidth <= 992) document.body.classList.remove('menu-open');
-          const yOffset = -20; 
-          const y = article.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        });
-        li.appendChild(a);
-        navList.appendChild(li);
-      });
-      const mobileBtn = document.querySelector('.mobile-menu-btn');
-      const overlay = document.querySelector('.overlay');
-      mobileBtn.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-      overlay.addEventListener('click', () => document.body.classList.remove('menu-open'));
-    });
-  </script>
+  <!-- ПОДКЛЮЧЕНИЕ ВНЕШНЕГО СКРИПТА -->
+  <script src="script.js"></script>
 </body>
 </html>
